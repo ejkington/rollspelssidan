@@ -46,6 +46,7 @@
     <!-- Extra title will appear beside the main title of the page in the window header -->
     <title>Rollspelarna{% block extra_title %}{% endblock %}</title>
 </head>
+>
 
 <body>
     <!-- Navbar -->
@@ -57,38 +58,39 @@
                     <b>Rollspelarna</b>
                 </h1>
             </a>
-
-            <!-- Sign in or Account, depending on whether the user is signed in or not -->
-            <div class="col-12 lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a href="#" class="text-black nav-link" id="user-option" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-option">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="#" class="dropdown-item">Product Managment</a>
-                            {% endif %}
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Logout</a>
-                            {% else %}
-                            <a href="#">Sign Up</a>
-                            <a href="#" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-
-                    <!-- Delivery threshold banner -->
-                    <div id="delivery-banner" class="row text-center">
-                        <div class="col bg-pink text-white">
-                            <h4 class="logo-font my-1">#</h4>
-                        </div>
-                    </div>
+            <!-- Delivery threshold banner -->
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-pink text-white">
+                    <h4 class="logo-font my-1">#</h4>
+                </div>
+            </div>
     </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
+        <a class="navbar-brand" href="#">Rollspels gänget</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Hem <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Äventyret
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Storyn</a>
+                        <a class="dropdown-item" href="#">Spelare</a>
+                        <a class="dropdown-item" href="#">Karaktärer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- page header block -->
     {% block page_header %}
